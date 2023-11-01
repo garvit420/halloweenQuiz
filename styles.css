@@ -40,7 +40,7 @@ input[type="radio"] {
     margin: 5px;
 }
 
-#next-button {
+#submit-button {
     background-color: #ff6600;
     color: #fff;
     padding: 10px 20px;
