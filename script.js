@@ -4,16 +4,7 @@ const questions = [
         options: ["Jack-o'-Lanterns", "Pumpkin Art", "Gourd Sculpting"],
         answer: "A"
     },
-    {
-        question: "Which famous Halloween movie features a character named Michael Myers?",
-        options: ["Hocus Pocus", "The Nightmare Before Christmas", "Halloween"],
-        answer: "C"
-    },
-    {
-        question: "What is the typical Halloween candy given to trick-or-treaters?",
-        options: ["Chocolates", "Gummy Worms", "Candy Corn"],
-        answer: "C"
-    }
+    // Add more questions here
 ];
 
 let currentQuestion = 0;
