@@ -187,9 +187,9 @@ function loadQuestion() {
         label.setAttribute("for", `option${index + 1}`);
         label.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
         optionsContainer.appendChild(label);
-    });
 
-    optionsContainer.addEventListener("change", handleOptionSelection);
+        optionElement.addEventListener("click", handleOptionSelection);
+    });
 }
 
 function showResult() {
@@ -207,19 +207,17 @@ function resetQuiz() {
     retryButton.style.display = "none";
 }
 
-function handleOptionSelection() {
-    const selectedOption = document.querySelector("input[name='answer']:checked");
-    if (selectedOption) {
-        if (selectedOption.value === shuffledQuestions[currentQuestion].answer) {
-            score++;
-        }
+function handleOptionSelection(event) {
+    const selectedOption = event.target.value;
+    if (selectedOption === shuffledQuestions[currentQuestion].answer) {
+        score++;
+    }
 
-        currentQuestion++;
-        if (currentQuestion < numberOfQuestions) {
-            loadQuestion();
-        } else {
-            showResult();
-        }
+    currentQuestion++;
+    if (currentQuestion < numberOfQuestions) {
+        loadQuestion();
+    } else {
+        showResult();
     }
 }
 
@@ -228,4 +226,5 @@ loadQuestion();
 retryButton.addEventListener("click", () => {
     resetQuiz();
 });
+
 
