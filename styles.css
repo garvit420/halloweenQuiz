@@ -43,4 +43,24 @@ header {
     z-index: 1; /* Set the z-index to be above the background */
 }
 
-/* Rest of the CSS remains the same */
+#result-container {
+    text-align: center;
+}
+
+#score {
+    font-weight: bold;
+    color: #ff6600;
+    font-size: 24px;
+}
+
+#retry-button {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto; /* Center the retry button horizontally and vertically */
+}
