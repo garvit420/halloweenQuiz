@@ -151,7 +151,7 @@ const allQuestions = [
     }
 ];
 
-const numberOfQuestions = 7; // Number of questions to select randomly
+const numberOfQuestions = 5; // Number of questions to select randomly
 
 let currentQuestion = 0;
 let score = 0;
@@ -159,7 +159,6 @@ let shuffledQuestions = [];
 
 const questionElement = document.getElementById("question");
 const optionsContainer = document.getElementById("options");
-const submitButton = document.getElementById("submit-button");
 const resultContainer = document.getElementById("result-container");
 const scoreElement = document.getElementById("score");
 const retryButton = document.getElementById("retry-button");
@@ -190,13 +189,12 @@ function loadQuestion() {
         optionsContainer.appendChild(label);
     });
 
-    submitButton.style.display = "block";
+    optionsContainer.addEventListener("change", handleOptionSelection);
 }
 
 function showResult() {
     resultContainer.style.display = "block";
     scoreElement.textContent = score;
-    submitButton.style.display = "none";
     retryButton.style.display = "block";
 }
 
@@ -209,9 +207,7 @@ function resetQuiz() {
     retryButton.style.display = "none";
 }
 
-loadQuestion();
-
-submitButton.addEventListener("click", () => {
+function handleOptionSelection() {
     const selectedOption = document.querySelector("input[name='answer']:checked");
     if (selectedOption) {
         if (selectedOption.value === shuffledQuestions[currentQuestion].answer) {
@@ -225,8 +221,11 @@ submitButton.addEventListener("click", () => {
             showResult();
         }
     }
-});
+}
+
+loadQuestion();
 
 retryButton.addEventListener("click", () => {
     resetQuiz();
 });
+
